@@ -794,39 +794,75 @@ body.light-theme .hero-text p{
 .nav-btn.next {
     right: 40px;
 }
-/* ============================
-   MOBILE NAV FIX
-============================ */
+/* =============================
+   PHONE NAVBAR PERFECT FIX
+============================= */
 
-.mobile-menu-btn {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-    padding: 10px;
-}
+@media (max-width: 800px) {
 
-.mobile-menu {
-    display: none;
-    flex-direction: column;
-    background: var(--bg-elevated);
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    border-bottom: 1px solid var(--border-subtle);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
+    /* Navbar cleaner */
+    .navbar {
+        padding: 12px 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-.mobile-menu a {
-    padding: 12px 0;
-    font-size: 1rem;
-    color: var(--text);
-    border-bottom: 1px solid var(--border-subtle);
-}
+    /* Hide desktop menu */
+    .nav-links {
+        display: none !important;
+    }
 
-.mobile-menu.show {
-    display: flex;
+    /* Show menu button */
+    .menu-btn {
+        display: block !important;
+        background: none;
+        border: none;
+        font-size: 26px;
+        cursor: pointer;
+        margin-left: auto;
+    }
+
+    /* Mobile dropdown */
+    #mobileMenu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        width: 75%;
+        background: var(--bg-elevated);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        flex-direction: column;
+        z-index: 99;
+    }
+
+    #mobileMenu.show {
+        display: flex;
+    }
+
+    #mobileMenu a {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-subtle);
+        font-size: 1.05rem;
+        color: var(--text);
+    }
+
+    /* Theme inside menu */
+    .mobile-theme {
+        margin-top: 15px;
+        background: var(--accent-soft);
+        padding: 10px;
+        border-radius: 20px;
+        border: none;
+        font-size: 1rem;
+    }
+
+    /* Hide desktop theme button */
+    .desktop-theme {
+        display: none !important;
+    }
 }
 
 /* Hide desktop menu on phone */
@@ -949,3 +985,28 @@ body.light-theme .hero-text p{
     }
 }
 
+@media (max-width: 800px) {
+
+    /* Text left aligned */
+    .hero-text,
+    .hero-text h1,
+    .hero-text h2,
+    .hero-text p {
+        text-align: left !important;
+    }
+
+    /* Hide exploring card */
+    .hero-card {
+        display: none !important;
+    }
+
+    /* Hide orbs */
+    .hero-visual,
+    .orb,
+    .orb-main,
+    .orb-secondary,
+    .orb-tertiary {
+        display: none !important;
+        opacity: 0 !important;
+    }
+}

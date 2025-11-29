@@ -8,11 +8,18 @@
 </head>
 <body>
 
+    <!-- ============================
+            NAVBAR
+    ============================= -->
     <header class="navbar">
-        <div class="nav-left">
-            <div class="logo">NovaVerse</div>
-        </div>
-        <div class="nav-right">
+
+        <!-- Left Side (Logo) -->
+        <div class="logo">NovaVerse</div>
+
+        <!-- Right Side (Desktop Nav + Menu Btn) -->
+        <div class="nav-actions">
+
+            <!-- Desktop Navigation -->
             <nav class="nav-links">
                 <a href="{{ url_for('index') }}">Home</a>
                 <a href="{{ url_for('about') }}">About</a>
@@ -20,23 +27,30 @@
                 <a href="{{ url_for('contact') }}">Contact</a>
                 <a href="{{ url_for('resume') }}">Resume</a>
             </nav>
-            <!-- Mobile Toggle Button -->
-            <button id="nav-toggle" class="nav-toggle">☰</button>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="mobile-menu">
-                <a href="{{ url_for('index') }}">Home</a>
-                <a href="{{ url_for('about') }}">About</a>
-                <a href="{{ url_for('projects') }}">Projects</a>
-                <a href="{{ url_for('contact') }}">Contact</a>
-                <a href="{{ url_for('resume') }}">Resume</a>
-            </div>
-            <br>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                ☾  theme.
-            </button></br>
+
+            <!-- Desktop Theme Toggle -->
+            <button class="theme-toggle desktop-theme" onclick="toggleTheme()">Theme ☾</button>
+
+            <!-- Mobile Menu Button -->
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
         </div>
+
     </header>
 
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('projects') }}">Projects</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+        <a href="{{ url_for('resume') }}">Resume</a>
+
+        <!-- Mobile Theme Toggle -->
+        <button class="theme-toggle mobile-theme" onclick="toggleTheme()">Theme ☾</button>
+    </div>
+
+
+    <!-- Flash Messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
         <div class="flash-container">
@@ -49,26 +63,32 @@
         {% endif %}
     {% endwith %}
 
+    <!-- Main Content -->
     <main>
         {% block content %}{% endblock %}
     </main>
+
+    <!-- Image Modal -->
     <div id="imgModal" class="modal">
-    
         <span class="close-btn" onclick="closeModal()">×</span>
-
         <img id="modalImg" class="modal-content">
-
         <button class="nav-btn prev" onclick="prevImage(event)">❮</button>
         <button class="nav-btn next" onclick="nextImage(event)">❯</button>
-
     </div>
 
-
-
+    <!-- Footer -->
     <footer class="footer">
         <p>© 2025 NovaVerse. Crafted with curiosity and code.</p>
     </footer>
 
+    <!-- JS -->
+    <script>
+        function toggleMenu() {
+            document.getElementById("mobileMenu").classList.toggle("show");
+        }
+    </script>
+
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </body>
 </html>
