@@ -13,10 +13,10 @@
     ============================= -->
     <header class="navbar">
 
-        <!-- Left Side (Logo) -->
+        <!-- Left: Logo -->
         <div class="logo">NovaVerse</div>
 
-        <!-- Right Side (Desktop Nav + Menu Btn) -->
+        <!-- Right: Desktop nav + theme + mobile menu btn -->
         <div class="nav-actions">
 
             <!-- Desktop Navigation -->
@@ -28,17 +28,21 @@
                 <a href="{{ url_for('resume') }}">Resume</a>
             </nav>
 
-            <!-- Desktop Theme Toggle -->
-            <button class="theme-toggle desktop-theme" onclick="toggleTheme()">Theme ☾</button>
+            <!-- Desktop Theme Button -->
+            <button id="theme-toggle" class="theme-toggle desktop-theme">☾ Dark</button>
 
-            <!-- Mobile Menu Button -->
+            <!-- Mobile Menu Open Button -->
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
         </div>
 
     </header>
 
-    <!-- Mobile Dropdown Menu -->
+
+    <!-- ============================
+            MOBILE MENU (DROPDOWN)
+    ============================= -->
     <div id="mobileMenu" class="mobile-menu">
+
         <a href="{{ url_for('index') }}">Home</a>
         <a href="{{ url_for('about') }}">About</a>
         <a href="{{ url_for('projects') }}">Projects</a>
@@ -46,8 +50,10 @@
         <a href="{{ url_for('resume') }}">Resume</a>
 
         <!-- Mobile Theme Toggle -->
-        <button class="theme-toggle mobile-theme" onclick="toggleTheme()">Theme ☾</button>
+        <button id="theme-toggle-mobile" class="theme-toggle mobile-theme">☾ Dark</button>
+
     </div>
+
 
 
     <!-- Flash Messages -->
@@ -63,10 +69,12 @@
         {% endif %}
     {% endwith %}
 
+
     <!-- Main Content -->
     <main>
         {% block content %}{% endblock %}
     </main>
+
 
     <!-- Image Modal -->
     <div id="imgModal" class="modal">
@@ -76,12 +84,14 @@
         <button class="nav-btn next" onclick="nextImage(event)">❯</button>
     </div>
 
+
     <!-- Footer -->
     <footer class="footer">
         <p>© 2025 NovaVerse. Crafted with curiosity and code.</p>
     </footer>
 
-    <!-- JS -->
+
+    <!-- Mobile Menu Toggle Script -->
     <script>
         function toggleMenu() {
             document.getElementById("mobileMenu").classList.toggle("show");
