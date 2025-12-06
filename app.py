@@ -203,8 +203,24 @@ def resume():
 
 @app.route("/certificates")
 def certificates():
-    return render_template("certificates.html")
-
+    certificates = [
+        {
+            "title": "CS50x Certificate",
+            "issuer": "Harvard / CS50",
+            "file": url_for('static', filename='certificates/cs50.png')
+        },
+        {
+            "title": "Web Development Internship",
+            "issuer": "TechnoHacks Solutions",
+            "file": url_for('static', filename='certificates/webdev.jpg')
+        },
+        {
+            "title": "Introduction to Agile Methodology",
+            "issuer": "Infosys Springboard",
+            "file": url_for('static', filename='certificates/agile.png')
+        }
+    ]
+    return render_template("certificates.html", certificates=certificates)
 
 if __name__ == "__main__":
     # Initialize DB before first run

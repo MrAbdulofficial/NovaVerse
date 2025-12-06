@@ -1023,3 +1023,53 @@ body.light-theme .hero-text p{
     }
 }
 
+.cert-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.cert-card {
+    width: 280px;
+    background: #fff;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.cert-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #2A2A39; /* professional dark */
+}
+
+.cert-card p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.btn-cert {
+    display: inline-block;
+    width: 160px;
+    padding: 10px ;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Hover effect */
+.btn-cert:hover {
+    background-color: var(--accent); /* darker accent */
+    transform: translateY(-2px);
+}
